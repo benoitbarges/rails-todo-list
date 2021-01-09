@@ -6,6 +6,7 @@
   <div class="card card-body">
     <%= simple_form_for Todo.new, remote: true do |f| %>
        <%= f.input :title %>
+       <%= f.input :deadline, as: :string, required: true, input_html: {class: "datepicker"} %>
        <%= f.submit "Ajouter", class: "btn btn-primary" %>
     <% end %>
   </div>
