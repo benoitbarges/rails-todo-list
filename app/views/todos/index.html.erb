@@ -1,5 +1,8 @@
 <ul>
   <% @todos.each do |todo| %>
-    <li><%= todo.title %></li>
+    <li>
+      <%= todo.title %>
+        <span><%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %></span>
+      </li>
   <% end %>
 </ul>
