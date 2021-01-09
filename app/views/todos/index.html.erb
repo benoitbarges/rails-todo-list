@@ -23,10 +23,26 @@
 
       <div class="collapse" id="collapse<%= todo.id %>">
         <div class="card card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+
+          <% if todo.comments.empty? %>
+            <p>add a comment</p>
+          <% else %>
+            <ul>
+              <% todo.comments.each do |comment| %>
+                <li><%= comment.content %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <%= simple_form_for [ todo, Comment.new ], remote: true do |f| %>
+            <%= f.input :content %>
+            <%= f.submit "Submit comment", class: "btn btn-primary" %>
+          <% end %>
+
         </div>
       </div>
 
     </li>
   <% end %>
 </ul>
+

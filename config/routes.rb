@@ -8,5 +8,7 @@ Rails.application.routes.draw do
       post :mark_as_done
       post :mark_as_not_done
     end
+
+    resources :comments, only: [:create]
   end
 end
