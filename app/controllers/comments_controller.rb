@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     authorize @comment
     @comment.destroy
-    redirect_to root_path(anchor: "comment-#{@comment.id}")
+    redirect_to root_path
   end
 
   private

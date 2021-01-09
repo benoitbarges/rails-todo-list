@@ -24,4 +24,8 @@ class TodoPolicy < ApplicationPolicy
   def mark_as_not_done?
     record.user == user
   end
+
+  def move?
+    record.user == user
+  end
 end
