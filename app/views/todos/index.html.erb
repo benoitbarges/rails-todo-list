@@ -48,8 +48,8 @@
             </ul>
           <% end %>
 
-          <%= simple_form_for [ todo, Comment.new ], remote: true do |f| %>
-            <%= f.input :content %>
+          <%= simple_form_for [ todo, Comment.new ], remote: true, html: {id: "new_comment-#{todo.id}"} do |f| %>
+            <%= f.input :content, input_html: {id: "comment_content-#{todo.id}"} %>
             <%= f.submit "Submit comment", class: "btn btn-primary" %>
           <% end %>
 
