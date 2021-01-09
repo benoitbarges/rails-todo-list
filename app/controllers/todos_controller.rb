@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:destroy, :mark_as_done, :mark_as_not_done, :move]
+  before_action :set_todo, only: [:destroy, :mark_as_done, :mark_as_not_done, :move, :update_deadline]
 
   def index
     @todos = policy_scope(Todo).order(:position)
@@ -38,6 +38,11 @@ class TodosController < ApplicationController
 
   def move
     @todo.insert_at(params[:position].to_i)
+    head :ok
+  end
+
+  def update_deadline
+    @todo.update(deadline: params[:deadline].to_date)
     head :ok
   end
 

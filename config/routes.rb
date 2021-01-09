@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post :mark_as_done
       post :mark_as_not_done
       patch :move
+      patch :update_deadline
     end
 
     resources :comments, only: :create

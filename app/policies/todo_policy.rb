@@ -28,4 +28,8 @@ class TodoPolicy < ApplicationPolicy
   def move?
     record.user == user
   end
+
+  def update_deadline?
+    record.user == user
+  end
 end
