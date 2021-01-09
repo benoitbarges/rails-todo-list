@@ -18,7 +18,7 @@ class TodosController < ApplicationController
     authorize @todo
     @todo.user = current_user
     @todo.save!
-    redirect_to root_path
+    redirect_to root_path(anchor: "todo-#{@todo.id}")
   end
 
   def destroy

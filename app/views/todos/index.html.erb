@@ -13,7 +13,7 @@
 
 <ul id='list' data-controller='drag'>
   <% @todos.each do |todo| %>
-    <li class="list-item" data-id="<%= todo.id %>">
+    <li class="list-item" data-id="<%= todo.id %>" id="todo-<%= todo.id %>">
       <span class='position'><%= todo.position %></span> - <%= todo.title %>
       <%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
 
