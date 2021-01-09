@@ -12,6 +12,6 @@ Todo.destroy_all
 
 User.all.each do |user|
   10.times do
-    Todo.create!(title: Faker::Lorem.sentence(word_count: 4), user_id: user.id)
+    Todo.create!(title: Faker::Lorem.sentence(word_count: 4), user_id: user.id, deadline: Date.today + rand(1..10))
   end
 end
