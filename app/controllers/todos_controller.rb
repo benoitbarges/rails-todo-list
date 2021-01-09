@@ -7,6 +7,10 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+    authorize @todo
+    @todo.user = current_user
+    @todo.save!
+    redirect_to root_path
   end
 
   def destroy

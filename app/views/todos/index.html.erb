@@ -1,8 +1,21 @@
+<%= simple_form_for Todo.new, remote: true do |f| %>
+   <%= f.input :title %>
+   <%= f.submit "Ajouter", class: "btn btn-primary" %>
+<% end %>
+
 <ul>
   <% @todos.each do |todo| %>
     <li >
       <%= todo.title %>
       <%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+
+      <%= link_to mark_as_done_todo_path(todo), method: :post, style: todo.done ? 'color: green' : 'color: grey', remote: true do %>
+        <i class="far fa-check-circle"></i>
+      <% end %>
+
+      <%= link_to mark_as_not_done_todo_path(todo), method: :post, style: !todo.done ? 'color: red' : 'color: grey', remote: true do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
 
       <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= todo.id %>" aria-expanded="false" aria-controls="collapse<%= todo.id %>">
         Comments
@@ -14,13 +27,6 @@
         </div>
       </div>
 
-      <%= link_to mark_as_done_todo_path(todo), method: :post, style: todo.done ? 'color: green' : 'color: grey', remote: true do %>
-        <i class="far fa-check-circle"></i>
-      <% end %>
-
-      <%= link_to mark_as_not_done_todo_path(todo), method: :post, style: !todo.done ? 'color: red' : 'color: grey', remote: true do %>
-        <i class="far fa-times-circle"></i>
-      <% end %>
     </li>
   <% end %>
 </ul>
