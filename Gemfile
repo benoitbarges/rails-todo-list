@@ -38,6 +38,7 @@ gem 'pundit'
 gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'jquery-rails'
 gem 'popper_js'
+gem 'acts_as_list'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
