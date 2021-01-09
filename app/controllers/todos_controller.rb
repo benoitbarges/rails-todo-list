@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:destroy]
+  before_action :set_todo, only: [:destroy, :mark_as_done, :mark_as_not_done]
 
   def index
     @todos = policy_scope(Todo)
@@ -11,6 +11,16 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
+    redirect_to root_path
+  end
+
+  def mark_as_done
+    @todo.update(done: true)
+    redirect_to root_path
+  end
+
+  def mark_as_not_done
+    @todo.update(done: false)
     redirect_to root_path
   end
 

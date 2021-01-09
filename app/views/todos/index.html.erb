@@ -1,8 +1,26 @@
 <ul>
   <% @todos.each do |todo| %>
-    <li>
+    <li >
       <%= todo.title %>
-        <span><%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %></span>
-      </li>
+      <%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
+
+      <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= todo.id %>" aria-expanded="false" aria-controls="collapse<%= todo.id %>">
+        Comments
+      </button>
+
+      <div class="collapse" id="collapse<%= todo.id %>">
+        <div class="card card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
+
+      <%= link_to mark_as_done_todo_path(todo), method: :post, style: todo.done ? 'color: green' : 'color: grey', remote: true do %>
+        <i class="far fa-check-circle"></i>
+      <% end %>
+
+      <%= link_to mark_as_not_done_todo_path(todo), method: :post, style: !todo.done ? 'color: red' : 'color: grey', remote: true do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    </li>
   <% end %>
 </ul>

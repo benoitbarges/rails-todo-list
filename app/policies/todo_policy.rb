@@ -12,4 +12,12 @@ class TodoPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def mark_as_done?
+    record.user == user
+  end
+
+  def mark_as_not_done?
+    record.user == user
+  end
 end
