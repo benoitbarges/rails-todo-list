@@ -1,3 +1,19 @@
+#app-header {
+  background: lighten(brown, 5%);
+  height: 30vh;
+  color: skyblue;
+  font-family: 'Lobster';
+  text-shadow: 4px 3px 0px #fff,
+               9px 8px 0px rgba(0,0,0,0.15);
+  span {
+    display: block;
+    transform: rotate(-7.0deg);
+    margin: auto;
+    width: max-content;
+    font-size: 2em;
+  }
+}
+
 #list {
   display: flex;
   flex-direction: column;
@@ -32,7 +48,7 @@
 
   .position-circle {
     border-radius: 50%;
-    background-color: #0093E9;
+    background-color: $light-blue;
     width: 30px;
     height: 30px;
     color: white;

@@ -23,7 +23,7 @@ $animate: all 0.1s ease-in-out;
     transition: $animate;
     transition-duration: 0.75s;
     opacity: 0;
-    background-color: darken(orange,5%);
+    background-color: $red;
     left: 10%;
   }
 

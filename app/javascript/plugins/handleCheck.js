@@ -1,24 +1,9 @@
-// Visit The Stimulus Handbook for more details
-// https://stimulusjs.org/handbook/introduction
-//
-// This example controller works with specially annotated HTML like:
-//
-// <div data-controller="hello">
-//   <h1 data-target="hello.output"></h1>
-// </div>
-
-import { Controller } from "stimulus"
 import Rails from "@rails/ujs"
 
-export default class extends Controller {
+const handleCheck = () => {
+  const checkboxes = document.querySelectorAll('.checkbox')
 
-  handleClick (event) {
-    console.log(event)
-  }
-
-  connect() {
-    const checkbox = this.element
-
+  checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', (event) => {
 
       const id = checkbox.dataset.todoId
@@ -50,5 +35,7 @@ export default class extends Controller {
         })
       }
     })
-  };
-}
+  })
+};
+
+export { handleCheck }

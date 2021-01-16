@@ -1,7 +1,7 @@
-<h1>TODO APP</h1>
+<h1 id="app-header" class="flexbox-center"><span>Todo App</span></h1>
 
-<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
-    Add a todo
+<button class="add-todo-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
+  <i class="fas fa-plus"></i>
 </button>
 
 <div class="collapse" id="collapseTodoForm">
@@ -25,7 +25,7 @@
         <h5 class="todo-title <%= 'todo-title-checked' if todo.done %> my-auto" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h5>
 
         <div class="d-flex checkbox-container">
-          <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check' data-action="click->check#handleClick">
+          <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>'>
             <i class="fas fa-check <%= 'fa-check-checked' if todo.done %> fa-check-<%= todo.id %>"></i>
           </div>
         </div>
