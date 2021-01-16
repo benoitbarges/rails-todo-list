@@ -11,14 +11,20 @@ import { Controller } from "stimulus"
 import Rails from "@rails/ujs"
 
 export default class extends Controller {
+
+  handleClick (event) {
+    console.log(event)
+  }
+
   connect() {
     const checkbox = this.element
+
     checkbox.addEventListener('click', (event) => {
 
       const id = checkbox.dataset.todoId
       const todoTitle = document.querySelector(`#todo-title-${id}`)
       const faCheck = document.querySelector(`.fa-check-${id}`)
-      const wellDone = "<p class='well-done'>WELL DONE !</p>"
+      const wellDone = "<p class='well-done my-auto'>WELL DONE !</p>"
 
       if (checkbox.classList.contains('checked')) {
         todoTitle.classList.remove('todo-title-checked')

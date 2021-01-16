@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     authorize @todo
     @todo.user = current_user
-    @todo.save!
+    @todo.save
     redirect_to root_path(anchor: "todo-#{@todo.id}")
   end
 

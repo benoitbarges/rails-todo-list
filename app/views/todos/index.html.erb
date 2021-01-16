@@ -1,3 +1,5 @@
+<h1>TODO APP</h1>
+
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
     Add a todo
 </button>
@@ -20,10 +22,10 @@
         <div class="position-circle flexbox-center">
           <div class='position'><%= todo.position %></div>
         </div>
-        <h5 class="todo-title <%= 'todo-title-checked' if todo.done %>" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h5>
+        <h5 class="todo-title <%= 'todo-title-checked' if todo.done %> my-auto" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h5>
 
         <div class="d-flex checkbox-container">
-          <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check'>
+          <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check' data-action="click->check#handleClick">
             <i class="fas fa-check <%= 'fa-check-checked' if todo.done %> fa-check-<%= todo.id %>"></i>
           </div>
         </div>
@@ -36,7 +38,7 @@
       <div class="d-flex">
         <p class="my-auto">Deadline</p>
         <div class="date-container">
-          <input class="changeDate" data-id='<%= todo.id %>' value="<%= todo.deadline %>"/>
+          <input class="changeDate px-0" data-id='<%= todo.id %>' value="<%= todo.deadline %>"/>
           <div class="underline"></div>
         </div>
       </div>
