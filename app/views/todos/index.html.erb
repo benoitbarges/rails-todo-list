@@ -15,16 +15,19 @@
 <ul id='list' data-controller='drag'>
   <% @todos.each do |todo| %>
     <li class="list-item" data-id="<%= todo.id %>" id="todo-<%= todo.id %>">
-      <span class='position'><%= todo.position %></span> - <%= todo.title %>
-      <%= link_to 'delete', todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, remote: true %>
 
-      <%= link_to mark_as_done_todo_path(todo), method: :post, style: todo.done ? 'color: green' : 'color: grey', remote: true do %>
-        <i class="far fa-check-circle"></i>
-      <% end %>
-
-      <%= link_to mark_as_not_done_todo_path(todo), method: :post, style: !todo.done ? 'color: red' : 'color: grey', remote: true do %>
-        <i class="far fa-times-circle"></i>
-      <% end %>
+      <div class="d-flex">
+        <div class="position-circle flexbox-center">
+          <div class='position'><%= todo.position %></div>
+        </div>
+        <h4 class="todo-title <%= 'todo-title-checked' if todo.done %>" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h4>
+        <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check'>
+          <i class="fas fa-check <%= 'fa-check-checked' if todo.done %> fa-check-<%= todo.id %>"></i>
+        </div>
+        <%= link_to todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-todo',remote: true do %>
+          <i class="far fa-minus-square"></i>
+        <% end %>
+      </div>
 
       <input class="changeDate" data-id='<%= todo.id %>' value="<%= todo.deadline %>"/>
 

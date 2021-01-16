@@ -28,12 +28,10 @@ class TodosController < ApplicationController
 
   def mark_as_done
     @todo.update(done: true)
-    redirect_to root_path(anchor: "todo-#{@todo.id}")
   end
 
   def mark_as_not_done
     @todo.update(done: false)
-    redirect_to root_path(anchor: "todo-#{@todo.id}")
   end
 
   def move
