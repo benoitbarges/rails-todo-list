@@ -1,0 +1,7 @@
+const comment = `<li id='comment-<%= @comment.id %>'>
+                  <%= @comment.content %>
+                  <%= link_to 'delete', comment_path(@comment), method: :delete, remote: true %>
+                </li>`
+
+document.querySelector("#todo-<%= @todo.id %>-comments").insertAdjacentHTML("beforeend", comment);
+document.querySelector('#comment_content-<%= @todo.id %>').value = ""

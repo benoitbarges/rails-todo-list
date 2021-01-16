@@ -5,14 +5,12 @@ class CommentsController < ApplicationController
     @todo = Todo.find(params[:todo_id])
     @comment.todo = @todo
     @comment.save
-    redirect_to root_path
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     authorize @comment
     @comment.destroy
-    redirect_to root_path
   end
 
   private
