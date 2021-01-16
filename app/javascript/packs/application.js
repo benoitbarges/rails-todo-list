@@ -27,12 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/init_flatpickr";
-import { handleCheck } from "../plugins/handle_check";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr();
-  // handleCheck();
 });
 
 import "controllers"

@@ -23,7 +23,6 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    redirect_to root_path
   end
 
   def mark_as_done

@@ -20,16 +20,27 @@
         <div class="position-circle flexbox-center">
           <div class='position'><%= todo.position %></div>
         </div>
-        <h4 class="todo-title <%= 'todo-title-checked' if todo.done %>" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h4>
-        <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check'>
-          <i class="fas fa-check <%= 'fa-check-checked' if todo.done %> fa-check-<%= todo.id %>"></i>
+        <h5 class="todo-title <%= 'todo-title-checked' if todo.done %>" id="todo-title-<%= todo.id %>"><%= todo.title.capitalize %></h5>
+
+        <div class="d-flex checkbox-container">
+          <div class="checkbox flexbox-center <%= 'checked' if todo.done %>" data-todo-id='<%= todo.id %>' data-controller='check'>
+            <i class="fas fa-check <%= 'fa-check-checked' if todo.done %> fa-check-<%= todo.id %>"></i>
+          </div>
         </div>
+
         <%= link_to todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-todo',remote: true do %>
           <i class="far fa-minus-square"></i>
         <% end %>
       </div>
 
-      <input class="changeDate" data-id='<%= todo.id %>' value="<%= todo.deadline %>"/>
+      <div class="d-flex">
+        <p class="my-auto">Deadline</p>
+        <div class="date-container">
+          <input class="changeDate" data-id='<%= todo.id %>' value="<%= todo.deadline %>"/>
+          <div class="underline"></div>
+        </div>
+      </div>
+
 
       <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= todo.id %>" aria-expanded="false" aria-controls="collapse<%= todo.id %>">
         Comments
