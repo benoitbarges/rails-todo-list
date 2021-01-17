@@ -1,8 +1,12 @@
-<h1 id="app-header" class="flexbox-center"><span>Todo App</span></h1>
+<div class="add-todo-container">
+  <h3 class="add-todo-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
+    Add a todo
+  </h3>
+  <button class="add-todo-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
 
-<button class="add-todo-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
-  <i class="fas fa-plus"></i>
-</button>
 
 <div class="collapse" id="collapseTodoForm">
   <div class="card card-body">
@@ -18,7 +22,7 @@
   <% @todos.each do |todo| %>
     <li class="list-item" data-id="<%= todo.id %>" id="todo-<%= todo.id %>">
 
-      <div class="d-flex">
+      <div class="d-flex list-item-header">
         <div class="position-circle flexbox-center">
           <div class='position'><%= todo.position %></div>
         </div>
@@ -52,18 +56,14 @@
       <div class="collapse" id="collapse<%= todo.id %>">
         <div class="card card-body">
 
-          <% if todo.comments.empty? %>
-            <p>add a comment</p>
-          <% else %>
-            <ul id='todo-<%= todo.id %>-comments'>
-              <% todo.comments.each do |comment| %>
-                <li id='comment-<%= comment.id %>'>
-                  <%= comment.content %>
-                  <%= link_to 'delete', comment_path(comment), method: :delete, remote: true %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
+          <ul id='todo-<%= todo.id %>-comments'>
+            <% todo.comments.each do |comment| %>
+              <li id='comment-<%= comment.id %>'>
+                <%= comment.content %>
+                <%= link_to 'delete', comment_path(comment), method: :delete, remote: true %>
+              </li>
+            <% end %>
+          </ul>
 
           <%= simple_form_for [ todo, Comment.new ], remote: true, html: {id: "new_comment-#{todo.id}"} do |f| %>
             <%= f.input :content, input_html: {id: "comment_content-#{todo.id}"} %>

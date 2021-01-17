@@ -1,6 +1,6 @@
 .checkbox-container {
   position: absolute;
-  top: 40%;
+  top: 35px;
   right: 10%;
 
   .checkbox {
@@ -34,11 +34,11 @@
     }
 
       &:before {
-        background-color: rgba(#DBD5D5, .6);
+        background-color: rgba(#DBD5D5, .8);
       }
 
       &:after {
-        background-color: rgba(#DBD5D5, .8);
+        background-color: rgba(#DBD5D5, 1);
       }
     }
 

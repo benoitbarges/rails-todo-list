@@ -1,0 +1,28 @@
+#banner {
+  background: lighten(brown, 5%);
+  height: 30vh;
+  position: relative;
+
+  #app-header {
+    color: $light-blue;
+    font-family: 'Lobster';
+    text-shadow: 4px 3px 0px #fff,
+                 9px 8px 0px rgba(0,0,0,0.15);
+    span {
+      display: block;
+      transform: rotate(-7.0deg);
+      margin: auto;
+      width: max-content;
+      font-size: 2em;
+    }
+  }
+
+  .log-in-out {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+}
