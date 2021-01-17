@@ -4,7 +4,8 @@
   right: 10%;
 
   .checkbox {
-    border: 2px solid #DBD5D5;
+    border: 2px solid $red;
+    // border: 2px solid #DBD5D5;
     width: 30px;
     height: 30px;
     border-radius: 3px;
@@ -15,6 +16,10 @@
 
   .checked {
     border-color: black;
+  }
+
+  .fa-check {
+    color: $red;
   }
 
   .check-circle {
@@ -44,7 +49,7 @@
 
   .check-circle-on {
     &:before, &:after {
-      transition:all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
       opacity: 0;
     }
 

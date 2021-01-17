@@ -9,10 +9,11 @@
 
 
 <div class="collapse" id="collapseTodoForm">
-  <div class="card card-body">
+  <div class="card card-body" id="add-todo-form">
     <%= simple_form_for Todo.new, remote: true do |f| %>
        <%= f.input :title %>
        <%= f.input :deadline, as: :string, required: true, input_html: {class: "datepicker"} %>
+       <ul class="error-messages"></ul>
        <%= f.submit "Ajouter", class: "btn btn-primary" %>
     <% end %>
   </div>

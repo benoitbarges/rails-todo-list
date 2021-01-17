@@ -1,0 +1,4 @@
+console.log("<%= @todo.errors.messages%>")
+console.log("<%= @todo.errors.full_messages%>")
+document.querySelector('.error-messages').innerHTML = ""
+document.querySelector('.error-messages').insertAdjacentHTML('beforeend', "<%= @todo.errors.full_messages%>")

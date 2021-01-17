@@ -17,8 +17,13 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     authorize @todo
     @todo.user = current_user
-    @todo.save
-    redirect_to root_path(anchor: "todo-#{@todo.id}")
+    if @todo.save
+      redirect_to root_path(anchor: "todo-#{@todo.id}")
+    else
+      respond_to do |format|
+        format.js { render :create_errors }
+      end
+    end
   end
 
   def destroy
