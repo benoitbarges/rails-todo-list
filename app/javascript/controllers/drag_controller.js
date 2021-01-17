@@ -16,7 +16,7 @@ export default class extends Controller {
     this.sortable = Sortable.create(this.element, {
       onEnd: this.end,
       animation: 150,
-      ghostClass: 'blue-background-class'
+      ghostClass: 'sortable-background-class'
     })
   }
 

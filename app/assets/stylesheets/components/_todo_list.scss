@@ -6,7 +6,7 @@
 }
 
 .list-item {
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
   list-style: none;
   background: white;
@@ -51,8 +51,8 @@
   align-items: center;
 }
 
-.blue-background-class {
-  background: blue;
+.sortable-background-class {
+  background: #DBD5D5;
 }
 
 .todo-title-checked {
@@ -61,6 +61,7 @@
 }
 
 .todo-title {
+  font-size: 1.3em;
   transition: opacity 0.2s ease-in-out;
 }
 
