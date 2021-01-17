@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-   def create
+  def create
     @comment = Comment.new(comment_params)
     authorize  @comment
     @todo = Todo.find(params[:todo_id])
