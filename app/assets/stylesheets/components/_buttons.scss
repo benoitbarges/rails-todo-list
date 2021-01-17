@@ -5,7 +5,7 @@
   border: none;
   animation: 1s linear infinite alternate boxMagic;
   background: white;
-  outline: none;
+  transition: transform 0.4s cubic-bezier(0.23,1.83,0.42,1.19);
 
   .fa-plus {
     font-size: 2em;
@@ -14,13 +14,27 @@
   }
 
   &:hover {
+    transform: scale(1.2);
+
     .fa-plus {
       transform: rotate(360deg);
     }
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
-// 4s linear infinite spinning;
+.comment-btn {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background: $light-blue;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.35);
+}
 
 @keyframes boxMagic {
   from {
@@ -31,3 +45,4 @@
     box-shadow: 0px 0px 0px 5px $red
   }
 }
+
