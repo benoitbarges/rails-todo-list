@@ -4,10 +4,13 @@ class CommentsController < ApplicationController
     authorize  @comment
     @todo = Todo.find(params[:todo_id])
     @comment.todo = @todo
-    if @comment.save
-      head :ok
-    else
-      render json: @comment.errors.messages
+
+    respond_to do |format|
+      if @comment.save
+        format.js
+      else
+        format.json { render json: @comment.errors.messages }
+      end
     end
   end
 
@@ -23,3 +26,6 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 end
+
+
+

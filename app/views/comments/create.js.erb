@@ -1,5 +1,7 @@
 document.querySelector("#todo-<%= @todo.id %>-comments").insertAdjacentHTML("beforeend", `<li id='comment-<%= @comment.id %>'>
                                                                                             <%= @comment.content %>
-                                                                                            <%= link_to 'delete', comment_path(@comment), method: :delete, remote: true %>
+                                                                                            <%= link_to comment_path(@comment), method: :delete, remote: true do %>
+                                                                                              <i class="far fa-minus-square"></i>
+                                                                                            <% end %>
                                                                                           </li>`);
 document.querySelector('#comment_content-<%= @todo.id %>').value = ""

@@ -66,8 +66,9 @@
   border-radius: 6px;
   color: white;
   text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.35);
-  margin-bottom: 10px;
-  // position: absolute;
-  // right: -20%;
-  // top: 15%;
+  font-size: 1.4em;
+
+  &:focus {
+    outline: none;
+  }
 }

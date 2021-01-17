@@ -18,7 +18,7 @@
         </div>
 
         <%= link_to todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-todo',remote: true do %>
-          <i class="far fa-minus-square"></i>
+          <i class="fas fa-times"></i>
         <% end %>
       </div>
 
@@ -31,7 +31,7 @@
       </div>
 
 
-      <button class="comment-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= todo.id %>" aria-expanded="false" aria-controls="collapse<%= todo.id %>">
+      <button class="comment-btn flexbox-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= todo.id %>" aria-expanded="false" aria-controls="collapse<%= todo.id %>">
         <i class="far fa-comment-dots"></i>
       </button>
 
@@ -42,7 +42,9 @@
             <% todo.comments.each do |comment| %>
               <li id='comment-<%= comment.id %>'>
                 <%= comment.content %>
-                <%= link_to 'delete', comment_path(comment), method: :delete, remote: true %>
+                <%= link_to comment_path(comment), method: :delete, remote: true do %>
+                  <i class="far fa-minus-square"></i>
+                <% end %>
               </li>
             <% end %>
           </ul>
