@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:destroy, :toggle_done :move, :update_deadline]
+  before_action :set_todo, only: [:destroy, :toggle_done, :move, :update_deadline]
   before_action :set_todos, only: [:index, :move]
 
   def index

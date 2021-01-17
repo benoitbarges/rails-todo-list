@@ -36,23 +36,23 @@
       </button>
 
       <div class="collapse" id="collapse<%= todo.id %>">
-        <div class="card card-body add-comment-form">
+        <div class="card card-body add-comment-form p-0">
 
           <ul id='todo-<%= todo.id %>-comments'>
             <% todo.comments.each do |comment| %>
-              <li id='comment-<%= comment.id %>'>
-                <%= comment.content %>
+              <li id='comment-<%= comment.id %>' class="comment-list-item">
                 <%= link_to comment_path(comment), method: :delete, remote: true do %>
                   <i class="far fa-minus-square"></i>
                 <% end %>
+                <p class="comment-content"><%= comment.content %></p>
               </li>
             <% end %>
           </ul>
 
           <%= simple_form_for [ todo, Comment.new ], remote: true, html: { id: "new_comment-#{todo.id}", class: 'comment-form' } do |f| %>
             <%= f.input :content, input_html: {id: "comment_content-#{todo.id}"} %>
-            <ul class="comment-errors-messages"></ul>
-            <%= f.submit "Submit comment", class: "btn btn-primary" %>
+            <ul class="comment-errors-messages mx-4"></ul>
+            <%= f.submit "Submit comment", class: "btn btn-primary mt-3" %>
           <% end %>
 
         </div>

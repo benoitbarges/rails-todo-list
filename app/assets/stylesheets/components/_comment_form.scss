@@ -1,0 +1,30 @@
+.add-comment-form {
+  border: none;
+
+  ul {
+    padding: 0;
+  }
+
+  .comment-list-item {
+    background: #d4f4f5;
+    list-style-type: none;
+    display: flex;
+    color: #5ec9dc;
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 7px;
+    padding: 10px;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .comment-errors-messages li {
+    list-style-type: disc;
+    color: $red;
+    margin-left: 10px;
+  }
+
+  .comment-content {
+    margin: 0;
+    margin-left: 10px;
+  }
+}

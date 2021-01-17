@@ -14,9 +14,9 @@ import Rails from '@rails/ujs'
 export default class extends Controller {
   connect() {
     this.sortable = Sortable.create(this.element, {
-      onEnd: this.end,
-      animation: 150,
-      ghostClass: 'sortable-background-class'
+      animation: 200,
+      ghostClass: 'sortable-background-class',
+      onEnd: this.end
     })
   }
 
