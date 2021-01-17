@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:destroy, :mark_as_done, :mark_as_not_done, :move, :update_deadline]
+  before_action :set_todo, only: [:destroy, :toggle_done :move, :update_deadline]
   before_action :set_todos, only: [:index, :move]
 
   def index
@@ -20,12 +20,8 @@ class TodosController < ApplicationController
     @todo.destroy
   end
 
-  def mark_as_done
-    @todo.update(done: true)
-  end
-
-  def mark_as_not_done
-    @todo.update(done: false)
+  def toggle_done
+    @todo.update(done: !@todo.done)
   end
 
   def move

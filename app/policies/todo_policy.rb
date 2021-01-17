@@ -17,11 +17,7 @@ class TodoPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def mark_as_done?
-    record.user == user
-  end
-
-  def mark_as_not_done?
+  def toggle_done?
     record.user == user
   end
 

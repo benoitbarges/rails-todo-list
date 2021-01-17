@@ -19,11 +19,6 @@ const handleCheck = () => {
         checkbox.parentNode.querySelector('.well-done')?.remove()
         checkCircle.classList.remove('check-circle-on')
 
-        Rails.ajax({
-          url: `/todos/${id}/mark_as_not_done`,
-          type: 'POST',
-        })
-
       } else {
         todoTitle.classList.add('todo-title-checked')
         checkbox.classList.add('checked')
@@ -31,12 +26,12 @@ const handleCheck = () => {
 
         checkbox.parentNode.insertAdjacentHTML('afterbegin', wellDone)
         checkCircle.classList.add('check-circle-on')
-
-        Rails.ajax({
-          url: `/todos/${id}/mark_as_done`,
-          type: 'POST',
-        })
       }
+
+      Rails.ajax({
+        url: `/todos/${id}/toggle_done`,
+        type: 'POST',
+      })
     })
   })
 };
