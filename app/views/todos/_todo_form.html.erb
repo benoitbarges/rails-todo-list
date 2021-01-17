@@ -1,0 +1,20 @@
+<div class="add-todo-container" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
+  <h3 class="add-todo-title">
+    Add a todo
+  </h3>
+  <button class="add-todo-btn">
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
+
+
+<div class="collapse" id="collapseTodoForm">
+  <div class="card card-body" id="todo-form-container">
+    <%= simple_form_for Todo.new, remote: true, html: {id: 'todo-form'} do |f| %>
+      <%= f.input :title %>
+      <%= f.input :deadline, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <ul class="todo-errors-messages"></ul>
+      <%= f.submit "Ajouter", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

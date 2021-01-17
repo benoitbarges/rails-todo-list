@@ -1,16 +1,8 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:destroy, :mark_as_done, :mark_as_not_done, :move, :update_deadline]
+  before_action :set_todos, only: [:index, :move]
 
   def index
-    @todos = policy_scope(Todo).order(:position)
-    respond_to do |format|
-      format.html do
-        @todos
-      end
-      format.json do
-        render json: @todos.as_json
-      end
-    end
   end
 
   def create
@@ -20,9 +12,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to root_path(anchor: "todo-#{@todo.id}")
     else
-      respond_to do |format|
-        format.js { render :create_errors }
-      end
+      render json: @todo.errors.messages
     end
   end
 
@@ -40,7 +30,7 @@ class TodosController < ApplicationController
 
   def move
     @todo.insert_at(params[:position].to_i)
-    head :ok
+    render json: @todos
   end
 
   def update_deadline
@@ -57,5 +47,9 @@ class TodosController < ApplicationController
   def set_todo
     @todo = Todo.find(params[:id])
     authorize @todo
+  end
+
+  def set_todos
+    @todos = policy_scope(Todo).order(:position)
   end
 end

@@ -1,23 +1,4 @@
-<div class="add-todo-container">
-  <h3 class="add-todo-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
-    Add a todo
-  </h3>
-  <button class="add-todo-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTodoForm" aria-expanded="false" aria-controls="collapseTodoForm">
-    <i class="fas fa-plus"></i>
-  </button>
-</div>
-
-
-<div class="collapse" id="collapseTodoForm">
-  <div class="card card-body" id="add-todo-form">
-    <%= simple_form_for Todo.new, remote: true do |f| %>
-       <%= f.input :title %>
-       <%= f.input :deadline, as: :string, required: true, input_html: {class: "datepicker"} %>
-       <ul class="error-messages"></ul>
-       <%= f.submit "Ajouter", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= render 'todo_form' %>
 
 <ul id='list' data-controller='drag'>
   <% @todos.each do |todo| %>
@@ -60,15 +41,15 @@
           <ul id='todo-<%= todo.id %>-comments'>
             <% todo.comments.each do |comment| %>
               <li id='comment-<%= comment.id %>'>
-                <i class="far fa-comment-dots"></i>
                 <%= comment.content %>
                 <%= link_to 'delete', comment_path(comment), method: :delete, remote: true %>
               </li>
             <% end %>
           </ul>
 
-          <%= simple_form_for [ todo, Comment.new ], remote: true, html: {id: "new_comment-#{todo.id}"} do |f| %>
+          <%= simple_form_for [ todo, Comment.new ], remote: true, html: { id: "new_comment-#{todo.id}", class: 'comment-form' } do |f| %>
             <%= f.input :content, input_html: {id: "comment_content-#{todo.id}"} %>
+            <ul class="comment-errors-messages"></ul>
             <%= f.submit "Submit comment", class: "btn btn-primary" %>
           <% end %>
 

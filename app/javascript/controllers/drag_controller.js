@@ -3,13 +3,13 @@
 //
 // This example controller works with specially annotated HTML like:
 //
-// <div data-controller="hello">
-//   <h1 data-target="hello.output"></h1>
+// <div data-controller='hello'>
+//   <h1 data-target='hello.output'></h1>
 // </div>
 
-import { Controller } from "stimulus"
-import Sortable from 'sortablejs';
-import Rails from "@rails/ujs"
+import { Controller } from 'stimulus'
+import Sortable from 'sortablejs'
+import Rails from '@rails/ujs'
 
 export default class extends Controller {
   connect() {
@@ -21,25 +21,22 @@ export default class extends Controller {
   }
 
   end(event) {
-    console.log(event)
-    let data =  new FormData()
+    const data =  new FormData()
     data.append('position', event.newIndex + 1)
-    let id = event.item.dataset.id
+
+    const id = event.item.dataset.id
+
+    const positions = document.querySelectorAll('.position')
 
     Rails.ajax({
       url: `/todos/${id}/move`,
       type: 'PATCH',
-      data: data
-    })
-
-    const positions = document.querySelectorAll('.position')
-
-    fetch('/todos.json')
-      .then(response => response.json())
-      .then(todos => {
+      data: data,
+      success: (todos) => {
         positions.forEach((position, index) => {
           position.innerText = todos[index].position
         })
-      })
-  };
+      }
+    })
+  }
 }

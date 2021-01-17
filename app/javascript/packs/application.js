@@ -17,22 +17,20 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 
-// ----------------------------------------------------
-// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-// WRITE YOUR OWN JS STARTING FROM HERE 👇
-// ----------------------------------------------------
-
 // External imports
-import "bootstrap";
+import "bootstrap"
 
 // Internal imports, e.g:
-import { initFlatpickr } from "../plugins/init_flatpickr";
-import { handleCheck } from "../plugins/handleCheck";
+import { initFlatpickr } from "../components/init_flatpickr"
+import { handleCheck } from "../components/handle_check"
+import { handleTodoFormErrors, handleCommentFormErrors } from "../components/handle_forms_errors"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initFlatpickr();
-  handleCheck();
-});
+  initFlatpickr()
+  handleCheck()
+  handleTodoFormErrors()
+  handleCommentFormErrors()
+})
 
 import "controllers"

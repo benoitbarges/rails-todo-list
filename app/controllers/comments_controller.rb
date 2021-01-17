@@ -4,7 +4,11 @@ class CommentsController < ApplicationController
     authorize  @comment
     @todo = Todo.find(params[:todo_id])
     @comment.todo = @todo
-    @comment.save
+    if @comment.save
+      head :ok
+    else
+      render json: @comment.errors.messages
+    end
   end
 
   def destroy
