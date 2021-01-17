@@ -1,0 +1,59 @@
+.checkbox-container {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+
+  .checkbox {
+    border: 2px solid #DBD5D5;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 5;
+  }
+
+  .checked {
+    border-color: black;
+  }
+
+  .check-circle {
+    position: absolute;
+    top: -5px;
+    left: 110px;
+    &:before, &:after {
+      transition: all 0s;
+      transform: scale(0);
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+    }
+
+      &:before {
+        background-color: rgba(#DBD5D5, .6);
+      }
+
+      &:after {
+        background-color: rgba(#DBD5D5, .8);
+      }
+    }
+
+  .check-circle-on {
+    &:before, &:after {
+      transition:all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 0;
+    }
+
+    &:before {
+      transform: scale(3);
+    }
+
+    &:after {
+      transform: scale(2);
+    }
+  }
+}
