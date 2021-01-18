@@ -19,5 +19,5 @@
 </ul>
 
 <p>You can find the project at this link (you need to wait a few seconds, it's hosted on Heroku with free plan)</p>
-<a href="https://bb-todo-app.herokuapp.com/">Todo App 📆</a>
+<a href="https://bb-todo-app.herokuapp.com/"><h3>Todo App 📆</h3></a>
 
