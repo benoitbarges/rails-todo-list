@@ -8,6 +8,7 @@
   <li>Run <code>bundle install</code> & <code>yarn install</code> to install all dependencies</li>
   <li>Run <code>rails server</code> to launch it on your machine and open 'http://localhost:3000/' in your browser</li>
   <li>Register with an email and a password or you can log in with <b>poulpe@example.com</b>, password: <b>poulpe</b></li>
+  <li>You can run some tests with <code>rails test</code></li>
 </ul>
 
 <h4>What can you do ?</h4>
