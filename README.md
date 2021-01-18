@@ -21,6 +21,6 @@
 </ul>
 
 <p>You can find the project at this link (you need to wait a few seconds, it's hosted on Heroku with free plan)</p>
-<p>you can log in with <b>poulpe@example.com</b>, password: <b>poulpe</b></p>
+<p>You can log in with <b>poulpe@example.com</b>, password: <b>poulpe</b></p>
 <a href="https://bb-todo-app.herokuapp.com/" target="_blank">TODO APP 📆</a>
 
