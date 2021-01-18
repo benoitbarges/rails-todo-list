@@ -2,18 +2,17 @@ require "application_system_test_case"
 
 class TodosTest < ApplicationSystemTestCase
 
-  test "viewing the index" do
+  def setup
     login_as users(:benoit)
     visit todos_path
+  end
+
+  test "viewing the index" do
     assert_selector "h1", text: "Todo App"
   end
 
   test "creating a todo" do
-    login_as users(:benoit)
-    visit todos_path
-
     click_on(class: 'add-todo-btn')
-    save_and_open_screenshot
 
     fill_in "Title", with: "Creating a todo"
     find('.datepicker').click
@@ -22,5 +21,13 @@ class TodosTest < ApplicationSystemTestCase
     click_on "Add Todo"
 
     assert_text "Creating a todo"
+  end
+
+  test "deleting a todo" do
+    count = Todo.count
+    first('.delete-todo').click
+    page.accept_alert
+    save_and_open_screenshot
+    assert_equal count - 1, Todo.count
   end
 end

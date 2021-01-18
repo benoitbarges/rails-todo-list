@@ -1,9 +1,11 @@
 clean_garage:
   title: 'Clean the garage'
   user: benoit
-  deadline: <=% Date.today %>
+  deadline: <%= Date.today %>
+  position: 1
 
 walk_the_dog:
   title: 'Walk the dog'
   user: benoit
-  deadline: <=% Date.today %>
+  deadline: <%= Date.today %>
+  position: 2
