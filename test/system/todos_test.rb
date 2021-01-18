@@ -27,7 +27,7 @@ class TodosTest < ApplicationSystemTestCase
     count = Todo.count
     first('.delete-todo').click
     page.accept_alert
-    save_and_open_screenshot
+    sleep 1
     assert_equal count - 1, Todo.count
   end
 end
