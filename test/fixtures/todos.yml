@@ -1,0 +1,4 @@
+clean_garage:
+  title: 'Clean the garage'
+  user: benoit
+  deadline: <=% Date.today %>
