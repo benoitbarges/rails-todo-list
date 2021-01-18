@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :todos, only: [:index, :create, :destroy] do
     member do
-      post :toggle_done
+      patch :toggle_done
       patch :move
       patch :update_deadline
     end

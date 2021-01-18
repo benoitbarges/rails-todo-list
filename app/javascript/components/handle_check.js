@@ -30,7 +30,7 @@ const handleCheck = () => {
 
       Rails.ajax({
         url: `/todos/${id}/toggle_done`,
-        type: 'POST',
+        type: 'PATCH',
       })
     })
   })
