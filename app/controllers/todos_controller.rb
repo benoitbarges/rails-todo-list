@@ -17,6 +17,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
+    @todos = policy_scope(Todo).order(:position).as_json
     @todo.destroy
   end
 

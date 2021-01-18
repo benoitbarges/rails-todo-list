@@ -17,7 +17,7 @@
           <div class='check-circle'></div>
         </div>
 
-        <%= link_to todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-todo',remote: true do %>
+        <%= link_to todo_path(todo), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-todo', 'data-id': todo.id,remote: true do %>
           <i class="fas fa-times"></i>
         <% end %>
       </div>

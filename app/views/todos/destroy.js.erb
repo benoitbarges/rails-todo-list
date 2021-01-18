@@ -1,1 +1,8 @@
 document.querySelector("#todo-<%= @todo.id %>").remove();
+
+var items = document.querySelectorAll('.list-item')
+
+document.querySelectorAll('.position').forEach((position, index) => {
+  position.innerText = Array.from(items).indexOf(items[index]) + 1
+})
+
