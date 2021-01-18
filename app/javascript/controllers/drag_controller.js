@@ -33,7 +33,6 @@ export default class extends Controller {
       type: 'PATCH',
       data: data,
       success: (todos) => {
-        console.log(todos)
         positions.forEach((position, index) => {
           position.innerText = todos[index].position
         })

@@ -1,5 +1,5 @@
 const handleTodoFormErrors = () => {
-  window.addEventListener('load', () => {
+  document.addEventListener('click', () => {
     const element = document.querySelector('#todo-form')
 
     if (element) {
@@ -23,7 +23,7 @@ const handleTodoFormErrors = () => {
 }
 
 const handleCommentFormErrors = () => {
-  window.addEventListener('load', () => {
+  document.addEventListener('click', () => {
     const elements = document.querySelectorAll('.comment-form')
 
     if (elements) {
