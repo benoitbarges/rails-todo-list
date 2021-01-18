@@ -4,6 +4,7 @@ class TodoTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:benoit)
+    @todo = todos(:clean_garage)
   end
 
   test "should not save todo without attributes" do
@@ -29,5 +30,9 @@ class TodoTest < ActiveSupport::TestCase
   test "should not save todo without title" do
     todo = Todo.new(deadline: Date.today, user: @user)
     assert_not todo.save, "Saved the todo without title"
+  end
+
+  test "comments" do
+    assert_equal 2, @todo.comments.size
   end
 end

@@ -2,3 +2,8 @@ clean_garage:
   title: 'Clean the garage'
   user: benoit
   deadline: <=% Date.today %>
+
+walk_the_dog:
+  title: 'Walk the dog'
+  user: benoit
+  deadline: <=% Date.today %>

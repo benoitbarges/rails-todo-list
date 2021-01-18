@@ -1,0 +1,7 @@
+comment_1:
+  content: 'It will be hard'
+  todo: clean_garage
+
+comment_2:
+  content: 'At least 1 hour'
+  todo: clean_garage
